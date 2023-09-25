@@ -1,3 +1,11 @@
+<script setup>
+import { ref } from 'vue';
+
+const showModel = ref(false)
+</script>
+
+
+
 <template>
   <!-- <div class="overlay">
   <div class="model">
@@ -10,8 +18,8 @@
   <main>
     <div class="container">
       <header>
-        <h1>Notes</h1>
-        <button>+</button>
+        <h1>Notes {{ showModel }}</h1>
+        <button @click="showModel = false">+</button>
       </header>
 
       <div class="cards-conatiner">
