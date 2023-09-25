@@ -1,4 +1,12 @@
 <template>
+  <!-- <div class="overlay">
+  <div class="model">
+  <textarea name="note" id="note" cols="30" rows="10"></textarea>
+  <button>Add Note</button>
+  <button class="close">Close</button>
+  </div>
+  
+  </div> -->
   <main>
     <div class="container">
       <header>
@@ -41,7 +49,7 @@ h1{
   margin-bottom: 25px;
   font-size: 75px;
 }
-button{
+header button{
   border: none;
   padding: 10px;
   width: 75px;
@@ -73,6 +81,41 @@ button{
 .cards-container{
   display: flex;
   flex-wrap: wrap ;
+}
+.overlay{
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0,0.70);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.model{
+  width: 750px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.model button{
+  padding: 10px 20px;
+  font-size: 20px;
+  width: 100%;
+  background-color:rgb(247, 79, 79) ;
+  border: none;
+  border-radius: .3em;
+  color: white;
+  cursor: pointer;
+}
+
+.model .close{
+  background-color: rgb(21, 20, 20);
 }
 
 
