@@ -2,24 +2,26 @@
 import { ref } from 'vue';
 
 const showModel = ref(false)
+
+
 </script>
 
 
 
 <template>
-  <!-- <div class="overlay">
+  <div v-if="showModel" class="overlay">
   <div class="model">
   <textarea name="note" id="note" cols="30" rows="10"></textarea>
   <button>Add Note</button>
-  <button class="close">Close</button>
+  <button class="close" @click="showModel= false">Close</button>
   </div>
   
-  </div> -->
+  </div>
   <main>
     <div class="container">
       <header>
         <h1>Notes {{ showModel }}</h1>
-        <button @click="showModel = false">+</button>
+        <button @click="showModel = true">+</button>
       </header>
 
       <div class="cards-conatiner">
