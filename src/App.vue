@@ -40,15 +40,15 @@ const addNote = () =>{
   <main>
     <div class="container">
       <header>
-        <h1>Notes {{ showModel }}</h1>
-        {{ notes }}
+        <h1>Notes </h1>
+        
         <button @click="showModel = true">+</button>
       </header>
 
-      <div class="cards-conatiner">
-      <div class="card">
-      <p class="main-text">hello darkness my old friend</p>
-      <p class="date">10/8/2023</p>
+      <div class="cards-container">
+      <div v-for="note in notes" class="card" :style="{backgroundColor: note.backgroundColor}">
+      <p class="main-text"> {{ note.text }}</p>
+      <p class="date">{{note.date.toLocaleDateString("en-Uk")}}</p>
       </div>
       
       </div>
