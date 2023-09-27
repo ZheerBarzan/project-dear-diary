@@ -23,6 +23,9 @@ const addNote = () =>{
 
 
 
+const deleteObject = (objectId) => {
+      notes.value = notes.value.filter(note => note.id !== objectId);
+    };
 
 </script>
 
@@ -46,9 +49,10 @@ const addNote = () =>{
       </header>
 
       <div class="cards-container">
-      <div v-for="note in notes" class="card" :style="{backgroundColor: note.backgroundColor}">
+      <div v-for="note in notes" :key="note.id" class="card" :style="{backgroundColor: note.backgroundColor}">
       <p class="main-text"> {{ note.text }}</p>
       <p class="date">{{note.date.toLocaleDateString("en-Uk")}}</p>
+      <p class="delete" @click="deleteObject(note.id)">X</p>
       </div>
       
       </div>
@@ -102,6 +106,11 @@ header button{
   justify-content: space-between;
   margin-right: 20px;
   margin-bottom: 20px;
+}
+.delete{
+  position: absolute;
+  margin-top: 183px;
+  margin-left: 183px;
 }
 .main-text{
   font-size: 16px;
