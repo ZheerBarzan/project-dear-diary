@@ -4,12 +4,16 @@ import { ref } from 'vue';
 const showModel = ref(false)
 const newNote = ref("")
 const notes = ref([])
-
+const errorMessege = ref("")
 function getRandomColor(){
 return "hsl(" + Math.random()*360 +", 100%, 75%)";
 }
 
 const addNote = () =>{
+  if(newNote.value.trim.length <= 5){
+    return errorMessege.value = "A Note should be 5 characters or more ✌️😎"
+
+  }
   notes.value.push({
     id: Math.floor(Math.random()*100000),
     text: newNote.value,
@@ -19,6 +23,7 @@ const addNote = () =>{
 
   showModel.value = false
   newNote.value = ""
+  errorMessege.value =""
 }
 
 
@@ -35,6 +40,7 @@ const deleteObject = (objectId) => {
   <div v-if="showModel" class="overlay">
   <div class="model">
   <textarea v-model="newNote" name="note" id="note" cols="30" rows="10" placeholder="what is on your mind?"></textarea>
+  <p v-if="errorMessege">{{ errorMessege }}</p>
   <button @click="addNote()">Add Note</button>
   <button class="close" @click="showModel= false">Close</button>
   </div>
@@ -156,6 +162,9 @@ header button{
 
 .model .close{
   background-color: rgb(21, 20, 20);
+}
+.model p{
+  color: rgb(247, 79, 79);
 }
 
 
