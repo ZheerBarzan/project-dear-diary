@@ -10,9 +10,8 @@ return "hsl(" + Math.random()*360 +", 100%, 75%)";
 }
 
 const addNote = () =>{
-  if(newNote.value.trim.length <= 5){
+  if(newNote.value.length  < 5){
     return errorMessege.value = "A Note should be 5 characters or more ✌️😎"
-
   }
   notes.value.push({
     id: Math.floor(Math.random()*100000),
@@ -58,7 +57,7 @@ const deleteObject = (objectId) => {
       <div v-for="note in notes" :key="note.id" class="card" :style="{backgroundColor: note.backgroundColor}">
       <p class="main-text"> {{ note.text }}</p>
       <p class="date">{{note.date.toLocaleDateString("en-Uk")}}</p>
-      <p class="delete" @click="deleteObject(note.id)">X</p>
+      <p class="delete" @click="deleteObject(note.id)">🗑️</p>
       </div>
       
       </div>
