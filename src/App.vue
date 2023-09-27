@@ -116,6 +116,7 @@ header button{
   position: absolute;
   margin-top: 183px;
   margin-left: 183px;
+  cursor: pointer;
 }
 .main-text{
   font-size: 16px;
